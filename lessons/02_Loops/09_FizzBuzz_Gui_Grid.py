@@ -12,7 +12,7 @@ color of the number based on the following rules:
 Additionally, If you are displaying a number  color the numbers as follows:
 
 * If the sum of the digits of the number is even, color the number blue
-* If the sum of the digits of the number is odd, color the number red
+* If the sum of the digits of the number is odd, color tgrfdgdhe number red
 
 Here is how you can display a number in your grid. Call this function in your loop
 to display the number in the grid cell at the row and column you specify.
@@ -32,6 +32,13 @@ from guizero import App, Box, Text
 app = App("Numbers Grid", layout="grid")
 
 # Create a 10x10 grid using nested loops
+grid_thing = [[(i*10 + j) for j in range(10)] for i in range(10)]
+
+for i in range(grid_thing):
+    for j in range(i):
+        print("j", end=" ")
+    print()
+
 # Or you can use a single loop and calculate the row and column
 
 # In the loop, calculate or increment the number
