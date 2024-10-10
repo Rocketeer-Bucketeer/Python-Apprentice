@@ -55,7 +55,12 @@ while True:
 
 
 while True:
-    user_guess = ask_integer("hello, try to guess a number from 1 through 100! This isn't any old guess the number game though, this ")
+    user_guess = ask_integer("hello, try to guess a number from 1 through 100! This isn't any old guess the number game though, this is a game that will surely throw you for a loop! Don't guess any multiples of 7, and try to get the number right!!!! Good luck, the creators. ")
+    if user_guess == number:
+        print("You got the number right! Great job and check out more games made with python by the creators!!!")
+        break
+    elif user_guess / 7 == range(1,50):
+        print("hey, ")
         
     
     
