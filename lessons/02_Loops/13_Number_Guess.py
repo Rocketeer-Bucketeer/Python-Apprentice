@@ -30,7 +30,7 @@ at the bottom of the editor screen; this program does not use the GUI.
 
 """
 
-import random
+
 
 def ask_integer(prompt):
     """Function to ask the user for an integer"""
@@ -43,24 +43,39 @@ def ask_integer(prompt):
 
 # Pick the random number
 
-while True:
-    number = random.randint(1,100)
-    if number / 7 == range(1, 50):
-        print( 
+import random
+
+# Function to generate a random number that is not divisible by 7
+def generate_number():
+    while True:
+        number = random.randint(1, 100)
+        if number % 7 != 0:
+            return number
+
+# Function to play the guessing game
+def guessing_game():
+    number_to_guess = generate_number()
+    print("Welcome to the guessing game!")
+    while True:
+        try:
+            user_guess = int(input("Guess a number between 1 and 100: "))
             
-        )
-    else:
-        break
+            if user_guess % 7 == 0:
+                print("You guessed a very bad number! Game over.")
+                break
+            elif user_guess > number_to_guess:
+                print("Too high! Guess lower.")
+            elif user_guess < number_to_guess:
+                print("Too low! Guess higher.")
+            else:
+                print("Congratulations! You guessed the number correctly!")
+                break
+        except ValueError:
+            print("Please enter a valid number.")
 
+# Start the game
+guessing_game()
 
-
-while True:
-    user_guess = ask_integer("hello, try to guess a number from 1 through 100! This isn't any old guess the number game though, this is a game that will surely throw you for a loop! Don't guess any multiples of 7, and try to get the number right!!!! Good luck, the creators. ")
-    if user_guess == number:
-        print("You got the number right! Great job and check out more games made with python by the creators!!!")
-        break
-    elif user_guess / 7 == range(1,50):
-        print("hey, ")
         
     
     
