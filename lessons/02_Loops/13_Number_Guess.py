@@ -54,7 +54,7 @@ def generate_number():
 
 # Function to play the guessing game
 def guessing_game():
-    number_to_guess = generate_number()
+    number = generate_number()
     print("Welcome to the guessing game!")
     while True:
         try:
@@ -63,9 +63,9 @@ def guessing_game():
             if user_guess % 7 == 0:
                 print("You guessed a very bad number! Game over.")
                 break
-            elif user_guess > number_to_guess:
+            elif user_guess > number:
                 print("Too high! Guess lower.")
-            elif user_guess < number_to_guess:
+            elif user_guess < number:
                 print("Too low! Guess higher.")
             else:
                 print("Congratulations! You guessed the number correctly!")

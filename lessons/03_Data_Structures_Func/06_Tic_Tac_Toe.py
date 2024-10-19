@@ -4,10 +4,15 @@ from guizero import App, Box, PushButton, Text, info
 X_MARK = "X"
 O_MARK = "O"
 
+
+
 # Implement check_row() and check_win() to allow the game to check if a player has won
 # IMPORTANT! In your code, you should use the constants X_MARK and O_MARK instead of the strings "x" and "o"
 
 def check_row(l):
+    return check_win
+   
+   
     """Check if a player won on a row
     Args:
         l: a 3 element iterable
