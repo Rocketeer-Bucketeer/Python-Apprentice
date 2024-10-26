@@ -96,8 +96,7 @@ class TicTacToe:
         self.turn_n += 1
         self.message.value = f"It's your turn, {self.current_turn}"
 
-        winner = self.win_func(self.board)
-
+        winner = self.win_func(self.board) 
         if winner:
             self.message.value = f"Player {winner} won!"
             info("Tic-tac-toe",f"Player {winner} won!")
