@@ -10,22 +10,39 @@ O_MARK = "O"
 # IMPORTANT! In your code, you should use the constants X_MARK and O_MARK instead of the strings "x" and "o"
 
 def check_row(l):
-   
-    return check_win
-   
+    won = set(l)
 
-    return None
+    if X_MARK in won and len(won) == 1:
+        return X_MARK
+    elif O_MARK in won and len(won) == 1:
+        return O_MARK
+    else:
+        return None
+
 
 def check_win(board):
-    """Check if a player has won on a board
-    Args:
-        board: a 3x3 2D array
-    
-    Returns:
-        The winner's token ( x or o ) if there is one, otherwise None
-    """
+    for row in board:
+        result = check_row(row)
+        if result:
+            return result
 
-    return None
+    # Check columns
+    for col in range(3):
+        column = [board[row][col] for row in range(3)]
+        result = check_row(column)
+        if result:
+            return result
+
+    # Check diagonals
+    diagonal1 = [board[i][i] for i in range(3)]  # top-left to bottom-right
+    diagonal2 = [board[i][2 - i] for i in range(3)]  # top-right to bottom-left
+    
+    if check_row(diagonal1):
+        return check_row(diagonal1)
+    if check_row(diagonal2):
+        return check_row(diagonal2)
+
+    return None  # No winner
 
 # The following code is the main part of the program. It creates a GUI for the
 # game and handles the game logic. Implement the functions above first, then
@@ -90,6 +107,7 @@ class TicTacToe:
         self.message.value = f"It's your turn, {self.current_turn}"
 
         winner = self.win_func(self.board) 
+        print(winner)
         if winner:
             self.message.value = f"Player {winner} won!"
             info("Tic-tac-toe",f"Player {winner} won!")
